@@ -1,6 +1,10 @@
-use std::io;
 mod player;
+mod entity;
+
+use std::io;
 use player::Player;
+use entity::Entity;
+use entity::EntityBehavior;
 
 fn prompt_user(prompt: &str) -> String {
   // Prompt user
@@ -13,11 +17,6 @@ fn prompt_user(prompt: &str) -> String {
 }
 
 fn main() {
-  let mut player = Player {name: "".to_string(), hp: 100, attack_power: 20, magic_power: 10, gold: 50};
-  let response: String = prompt_user("Name your character!");
-  player.set_name(response);
-
-  println!("{} sets out on their first journey!", player.get_name());
-  println!("{}'s stats:", player.get_name());
+  let mut player = Player{entity: Entity {name: "sam".to_string(), hp: 100, attack_power: 20, magic_power: 10, gold: 50}};
   player.print();
 }
