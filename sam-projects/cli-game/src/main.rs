@@ -3,6 +3,7 @@ mod entity;
 mod game;
 mod enemy;
 mod util;
+mod scripts;
 
 use player::Player;
 use entity::Entity;

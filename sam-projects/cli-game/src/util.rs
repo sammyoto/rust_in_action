@@ -1,6 +1,7 @@
 use std::error::Error;
 use std::fs::File;
 use csv::ReaderBuilder;
+use std::io;
 
 pub fn read_csv() -> Result<Vec<String>, Box<dyn Error>> {
     let file = File::open("data/names.csv")?;
@@ -15,4 +16,13 @@ pub fn read_csv() -> Result<Vec<String>, Box<dyn Error>> {
     }
 
     Ok(names)
+}
+
+pub fn prompt_user(prompt: &str) -> String {
+    println!("{}", prompt);
+
+    let mut response: String = String::new();
+    io::stdin().read_line(&mut response).expect("Failed to read line");
+
+    response.trim().to_string()
 }
