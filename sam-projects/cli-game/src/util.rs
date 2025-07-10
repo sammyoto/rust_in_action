@@ -10,7 +10,6 @@ pub fn read_csv() -> Result<Vec<String>, Box<dyn Error>> {
     for result in rdr.records() {
         let record = result?;
         for name in record.iter() {
-            println!("{}", name);
             names.push(name.to_string());
         }
     }
